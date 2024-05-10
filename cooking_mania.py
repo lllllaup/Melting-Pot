@@ -1,6 +1,6 @@
 import pygame, sys, random, time
 
-#global variables
+#global variables agaraerg
 screen_width = 1024
 screen_height = 768
 '''---------------------------------SPRITES/CLASSES---------------------'''
@@ -39,6 +39,8 @@ class Food(pygame.sprite.Sprite):
     def collide(self):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
             return True
+        else:
+            return False
 
 
 class Orders(pygame.sprite.Sprite):
@@ -351,15 +353,15 @@ def main():
                         count2 += 1
 
                         
-                    # count4 = 0
-                    # count5 = 0
-                    # for plate_name in plate_list:
-                    #     if sprite == plate_name:
-                    #         for plate in plate_gp:
-                    #             if count4 == count5:
-                    #                 plate.click(mouse_pos)
-                    #             count4 += 1
-                    #     count5 += 1
+                    count4 = 0
+                    count5 = 0
+                    for plate_name in plate_list:
+                        if sprite == plate_name:
+                            for plate in plate_gp:
+                                if count4 == count5:
+                                    plate.click(mouse_pos)
+                                count4 += 1
+                        count5 += 1
                     
                     for food in food_gp:
                         if sprite == str(food):
@@ -477,8 +479,7 @@ def main():
         for plate in plate_gp:
             for pancake in scal_pancake_gp: 
                 if pygame.sprite.collide_rect(plate, pancake):
-                    if pancake.clicking() != True and pancake.collide() != True:
-                        pancake.rect.center = plate.rect.center
+                    pancake.rect.center = plate.rect.center
                     plate_gp2.add(plate)
                     plate_gp.remove(plate)
                     
