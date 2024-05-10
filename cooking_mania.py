@@ -111,7 +111,7 @@ class Pan(Equipment):
 class Plate(Food):
     def __init__(self, x, y):
         super().__init__(x, y)
-        self.image = pygame.transform.scale(pygame.image.load("assets/plate.png"), (150, 100))
+        self.image = pygame.transform.scale(pygame.image.load("assets/plate.png"), (100, 66))
         self.rect = self.image.get_rect()
         self.rect.center = (self.x, self.y)
 
@@ -481,10 +481,15 @@ def main():
         for plate in plate_gp:
             for pancake in scal_pancake_gp: 
                 if pygame.sprite.collide_rect(plate, pancake):
-                    pancake.rect.center = plate.rect.center
-                    plate_gp2.add(plate)
-                    plate_gp.remove(plate)
-                    
+                    if event.type == pygame.MOUSEBUTTONUP:
+
+                        print('collide')
+                        pancake.rect.center = plate.rect.center
+                        plate_gp2.add(plate)
+                        plate_gp.remove(plate)
+                        print(plate_gp)
+                        
+        
 
         # Updating the window
         pygame.display.flip()
