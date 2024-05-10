@@ -1,6 +1,8 @@
 import pygame, sys, random, time
 
 #global variables agaraerg
+
+blah = 0
 screen_width = 1024
 screen_height = 768
 '''---------------------------------SPRITES/CLASSES---------------------'''
